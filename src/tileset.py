@@ -1,0 +1,34 @@
+import pygame
+
+class Tileset:
+
+    def __init__(self, file, size=(32,32), margin=0, spacing=0):
+        self.file = file
+        self.size = size
+        self.margin = margin
+        self.spacing = spacing
+        self.image = pygame.image.load(file).convert_alpha()
+        self.tiles = []
+        self.load()
+
+    def load(self):
+        self.tiles = []
+        x0 = self.margin
+        y0 = self.margin
+        w, h = self.image.get_rect().size
+        dx = self.size[0] + self.spacing
+        dy = self.size[1] + self.spacing
+
+        for y in range(y0, h, dy):
+            for x in range(x0,w,dx):
+                tile = pygame.Surface(self.size, pygame.SRCALPHA)
+                tile.blit(self.image, (0, 0), (x, y, self.size[0], self.size[1]))
+                self.tiles.append(tile)
+
+    def get_tile(self, index):
+        if 0 <= index < len(self.tiles):
+            return self.tiles[index]
+        return None
+
+    def __len__(self):
+        return len(self.tiles)

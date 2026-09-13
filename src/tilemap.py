@@ -1,0 +1,65 @@
+import pygame
+from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT
+
+class Tilemap:
+
+    def __init__(self, tileset, width, height):
+        self.tileset = tileset
+        self.width = width
+        self.height = height
+        self.tile_size = tileset.size[0]
+        self.map = [[0 for _ in range(width)] for _ in range(height)]
+        self.layers = {}
+        self.collisions = [[False for _ in range(width)] for _ in range(height)]
+
+    def get_tile_index(self, x, y):
+        if 0 <= x < self.width and 0 <= y < self.height:
+            return self.map[y][x]
+        return -1
+
+    def set_tile(self, x, y, tile_index):
+        if 0 <= x < self.width and 0 <= y < self.height:
+            self.map[y][x] = tile_index
+
+    def set_collision(self, x, y, collidable=True):
+        if 0 <= x < self.width and 0 <= y < self.height:
+            self.collisions[y][x] = collidable
+
+    def is_collidable(self, x, y):
+        if x < 0 or x >= self.width or y < 0 or y >= self.height:
+            return True
+        return self.collisions[y][x]
+
+    def render(self, screen, camera_x, camera_y):
+        start_x = max(0, int(camera_x // self.tile_size))
+        start_y = max(0, int(camera_y // self.tile_size))
+        end_x = min(self.width, start_x + (SCREEN_WIDTH // self.tile_size) + 2)
+        end_y = min(self.height, start_y + (SCREEN_HEIGHT // self.tile_size) + 2)
+        for grid in self.layers.values():
+            for y in range(start_y, end_y):
+                for x in range(start_x, end_x):
+                    tile_index = grid [y][x]
+                    tile = self.tileset.get_tile(tile_index)
+                    if tile_index == 0:
+                        continue
+                    if tile:
+                        screen_x = x * self.tile_size - camera_x
+                        screen_y = y * self.tile_size - camera_y
+                        screen.blit(tile, (screen_x, screen_y))
+
+    def pixel_to_tile(self, pixel_x, pixel_y):
+        return int(pixel_x // self.tile_size), int(pixel_y // self.tile_size)
+
+    def tile_to_pixel(self, tile_x, tile_y):
+        return tile_x * self.tile_size, tile_y * self.tile_size
+
+    @staticmethod
+    def from_list(tileset, data, collisions=None):
+        height = len(data)
+        width = len(data[0]) if height > 0 else 0
+        tilemap = Tilemap(tileset, width, height)
+        tilemap.map = data
+        if collisions:
+            tilemap.collisions = collisions
+        return tilemap
+    

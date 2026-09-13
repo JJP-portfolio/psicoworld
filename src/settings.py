@@ -1,0 +1,28 @@
+# Pantalla
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
+FPS = 60
+TITLE = "PsicoWorld"
+ENCOUNTERS_ENABLED = False
+# Colores (R, G, B)
+BLACK = (0,0,0)
+WHITE = (255, 255, 255)
+RED = (200, 0, 0)
+GREEN = (0, 180, 0)
+BLUE = (0, 0, 200)
+GRAY = (100, 100, 100)
+YELLOW = (255, 255, 0)
+
+
+# Encuentros
+
+ENCOUNTER_BASE_STEPS = 70 # Pasos promedio entre encuentros
+# ENCOUNTER Frecuencia por zonas
+ENCOUNTER_STEPS = {
+    "normal": 60,
+    "hielo": 50,
+    "volcanica": 40,
+    "desierto": 25
+}
+
+
