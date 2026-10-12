@@ -1,4 +1,4 @@
-# Mi JRPG
+# PsicoWorld
 
 JRPG top-down con combate en tiempo real (WASD + mouse), hecho con pygame-ce.
 
