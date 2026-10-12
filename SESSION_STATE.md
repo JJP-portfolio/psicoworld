@@ -3,6 +3,15 @@
 > **Última actualización:** 2026-09-13
 > **Paso actual:** Mapa 60×40 con tileset único, colisiones con polígonos funcionando, encuentros desactivados, pendiente test visual + casa + transiciones
 
+## CHECKPOINT 2026-09-13 — Nuevo punto de partida
+
+Verificado headless: portales ida/vuelta sin rebotes, cinemática dueño (proximidad→diálogo×3→libera),
+NPCs con sprites, tembleque, spawn casa 4/4, casa 341 tiles colisión (regla: sin arte = pared),
+overworld intacto. Flujo jugable: spawn → puerta → casa → dueño → puerta.
+Docs: c1-c8 ejercicios, combate-swarm-atb, troubleshooting, paredes, filtros, explore-state,
+animacion-patterns, animacion-arquitectura. Track nuevo: `docs/diseno/` (D1-D8).
+Pendiente: Beat 5 (guardias entran → primera batalla), combate tiempo real por fases.
+
 ---
 
 ## Checklist de implementación
@@ -208,6 +217,11 @@ dx=1, dy=1 → dx/=√2, dy/=√2 → velocidad = 1 (misma que cardinal)
 | `docs/list-comprehensions.md` | Guía de list comprehensions Python | ✅ |
 | `docs/troubleshooting.md` | Incidentes + FAQs de Tiled (save vs export, JSON externo, objetos, tiles negros, firstgid) | ✅ |
 | `docs/paredes-pipoya.md` | Anatomía de muros (GIDs por rol), receta casa, Terrain/Automapping | ✅ |
+| `docs/graficos-filtros.md` | Filtros SNES (scanlines, smoothscale, scale2x, xBRZ) + snippet | ✅ |
+| `docs/explore-state.md` | Explicación de explore_state + hooks de cinemática + trampas | ✅ |
+| `docs/animacion-patterns.md` | 3 relojes, 4 casos GitHub/SO revisados, checklist buenas prácticas | ✅ |
+| `docs/animacion-arquitectura.md` | 3 capas (Sprite/cinemática-comandos/eventos), sin dependencias | ✅ |
+| `docs/diseno/d1-pilares.md` … `d8-playtesting.md` | Track Diseño Conceptual: 10 ej/módulo, 4º y 8º integradores | ✅ |
 
 ---
 
@@ -245,6 +259,11 @@ dx=1, dy=1 → dx/=√2, dy/=√2 → velocidad = 1 (misma que cardinal)
 cd ~/Documentos/Proyectos/mi_jrpg
 source venv/bin/activate
 python main.py
+```
+
+## Convención de guía (pedido del estudiante 2026-09-13)
+
+Toda indicación de código debe traer: **archivo + línea + código anterior a reemplazar**. Sin eso, no se escribe nada.
 
 # Archivos clave:
 # SESSION_STATE.md — Estado actual (este archivo)

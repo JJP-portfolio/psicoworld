@@ -84,7 +84,10 @@ def load_collisions(tilemap, json_path):
                     for ty in range(start_ty, end_ty + 1):
                         for tx in range(start_tx, end_tx + 1):
                             tilemap.set_collision(tx, ty, True)
-                        
+    for y in range(tilemap.height):
+        for x in range(tilemap.width):
+            if all(grid[y][x] == 0 for grid in tilemap.layers.values()):
+                tilemap.set_collision(x, y, True)
 def get_objects_from_map(json_path):
     if not os.path.exists(json_path):
         return[]
@@ -96,12 +99,16 @@ def get_objects_from_map(json_path):
     for layer in data['layers']:
         if layer['type'] == 'objectgroup':
             for obj in layer['objects']:
+                props = {}
+                for p in (obj.get('properties') or []):
+                    props[p['name']] = p.get('value')
                 objects.append({
+                    'layer': layer.get('name', ''),
                     'name': obj.get('name', ''),
                     'x': obj.get('x', 0),
                     'y': obj.get('y', 0),
                     'width': obj.get('width', 0),
                     'height': obj.get('height', 0),
+                    'properties': props,
                 })
-
     return objects

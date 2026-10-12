@@ -20,6 +20,9 @@
 
 - `Ctrl+S` guarda el `.tmx`. El juego lee el `.json` → hay que **Archivo → Exportar como** cada vez.
 - Alternativa por línea de comandos (doc oficial): `tiled --export-map mapa.tmx data/maps/mapa.json`. Sirve para automatizar.
+- REGLA (incidente 11:17, definitiva 2026-09-13): el `.json` de `data/maps/` es la fuente de verdad.
+  Se borró `assets/tmx/mapa_inicio.tmx` (pisaba los fixes al exportar). Abrir y guardar el `.json`
+  directo en Tiled. Backup post-fix: `*.fixed`.
 
 ## FAQ 2 — Editar el JSON a mano o con script
 

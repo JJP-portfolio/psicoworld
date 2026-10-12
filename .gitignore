@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.bak
+*.bak2
+*.fixed
+*~
+\#*#
+.\#*
+*Minibuf*
+.DS_Store
+offline-vaio/
+*.whl

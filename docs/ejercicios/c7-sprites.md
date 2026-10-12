@@ -1,6 +1,6 @@
 # Ejercicios C7 — Sprites y Animación
 
-Archivos: `src/components/sprite.py`, `src/systems/movement_system.py`, animación en `explore_state.py`, sheet `Male 01-1.png` (96×128 = 3 cols × 4 filas: 0 abajo, 1 derecha, 2 izquierda, 3 arriba).
+Archivos: `src/components/sprite.py`, `src/systems/movement_system.py`, animación en `explore_state.py`, sheet `Male 01-1.png` (96×128 = 3 cols × 4 filas estándar RPG Maker: 0 abajo, 1 izquierda, 2 derecha, 3 arriba).
 
 1. (Fácil) Cargá el PNG e imprimí sus dimensiones. ¿Cuántas filas/columnas de 32×32 entran?
 2. (Fácil) Cortá la fila 0 en frames y mostralos numerados en pantalla.
