@@ -10,7 +10,7 @@ JRPG top-down con combate en tiempo real (WASD + mouse), hecho con pygame-ce.
 ## Instalación
 
 ```bash
-cd ~/Documentos/Proyectos/mi_jrpg
+cd ~/Documentos/Proyectos/psicoworld
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -26,7 +26,7 @@ python main.py
 ## Estructura
 
 ```
-mi_jrpg/
+psicoworld/
 ├── main.py                 ← Punto de entrada
 ├── requirements.txt        ← Dependencias
 ├── DESIGN.md               ← Decisiones de diseño

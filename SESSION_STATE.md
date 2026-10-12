@@ -256,7 +256,7 @@ dx=1, dy=1 → dx/=√2, dy/=√2 → velocidad = 1 (misma que cardinal)
 ## Cómo continuar
 
 ```bash
-cd ~/Documentos/Proyectos/mi_jrpg
+cd ~/Documentos/Proyectos/psicoworld
 source venv/bin/activate
 python main.py
 ```
